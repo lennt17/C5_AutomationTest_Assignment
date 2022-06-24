@@ -20,7 +20,7 @@ public class DemoTest extends TestNGListener {
         super();
     }
 
-    @Test(description = "demoTest")
+    @Test(description = "Get 10 counter and descending")
     public void demoTest(){
         homePage = new HomePage(action);
         homePage.getGroupItems();
