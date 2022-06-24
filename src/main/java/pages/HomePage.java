@@ -56,12 +56,14 @@ public class HomePage {
             item = new Item(count, name, code, change, txtChange, vol);
             listItems.add(item);
         }
+        action.takeScreenshot();
     }
 
     @Step("Descending order of change")
     public void descendItem(){
         Collections.sort(listItems, comparator);
         Collections.reverse(listItems);
+        action.takeScreenshot();
         System.out.println(listItems);
     }
 }

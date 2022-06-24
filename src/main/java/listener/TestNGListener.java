@@ -72,7 +72,7 @@ public class TestNGListener {
     public void deleteFileFromDirectory() {
         //String user = System.getProperty("user home");   // user if data in your user profile
         //String filePath = user + "/Downloads/Test;
-        String directory = "D:\\C5-VMO-git\\C5-Automation-Assignment1A\\allure-results"; // If download is in IDE project folder
+        String directory = "D:\\C5-VMO-git\\C5-Automation-Assignment1A\\target\\allure-results"; // If download is in IDE project folder
 
         File file = new File(directory);
         String[] currentFiles;
