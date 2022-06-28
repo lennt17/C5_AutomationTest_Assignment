@@ -1,6 +1,8 @@
 ### README
 JDK 11
 
+// Run project by running testSuites.xml
+
 Assignment 1A: Web Automation
 1. Go to Bursa Malaysia website https://www.bursamalaysia.com/ and get the daily top 10 counter based on volume (Most Active).  Display the results in descending order of change NOT the volume.   The output should consist of the following info:   Stock Code, Stock Name, Change and Volume.
 You can print the output in any reporter of your choice or even in the console.
