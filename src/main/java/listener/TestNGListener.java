@@ -5,23 +5,22 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-import test.DemoTest;
-import test.DemoTest;
+
 import utils.configs.ConfigSettings;
-import utils.log.LogHelper;
 
 import java.io.File;
 
 public class TestNGListener {
     protected WebKeywords action;
-
-    private static Logger logger = LogHelper.getLogger();
     private ConfigSettings configSettings;
+    private drivers.DriverManager driverManager;
+    public WebDriver getDriver() {
+        return driverManager.getDriver();
+    }
 
     public TestNGListener() {
         action = new WebKeywords();
@@ -55,9 +54,7 @@ public class TestNGListener {
     public void onTestFailure(ITestResult iTestResult) {
         System.out.print("I am in onTestFailure method " + getTestMethodName(iTestResult) + "failed");
 
-        // Get driver from DemoTest and assign to local webdriver variable
-        Object testClass = iTestResult.getInstance();
-        WebDriver driver = ((DemoTest) testClass).getDriver();
+        WebDriver driver = getDriver();
 
         // Allure ScreenshotRobot and SaveTestLog
         if (driver instanceof WebDriver) {
