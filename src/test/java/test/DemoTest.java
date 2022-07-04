@@ -10,7 +10,6 @@ public class DemoTest extends TestNGListener {
     public DemoTest(){
         super();
     }
-
     @Test(description = "Get 10 counter and descending")
     public void demoTest(){
         homePage = new HomePage(action);
