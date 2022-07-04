@@ -10,8 +10,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static java.lang.Float.parseFloat;
-
 public class HomePage {
     public WebKeywords action;
     private Item item;

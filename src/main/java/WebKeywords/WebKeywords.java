@@ -96,15 +96,8 @@ public class WebKeywords {
 	public void closeBrowser(String url) {
 		logger.info(MessageFormat.format("Closing ''{0}'' browser", url));
 		try {
-//			WebDriver driver = driverManager.getDriver();
-//			driver.close();
 			driverManager.quitDriver();
 			logger.info(MessageFormat.format("Closed ''{0}'' browser successfully", url));
-//			if (url != null && !url.isEmpty()) {
-//				logger.info(MessageFormat.format("Navigating to url ''{0}''", url));
-//				driver.get(url);
-//				logger.info(MessageFormat.format("Navigated to url ''{0}'' successfully", url));
-//			}
 		} catch (Exception e) {
 			logger.info(
 					MessageFormat.format("Cannot close browser ''{0}''. Root cause is: ''{1}''", url, e.getMessage()));
@@ -148,8 +141,6 @@ public class WebKeywords {
 	}
 
 	// 7. find element smart use fluent wait
-	// int... = int[] : int dáº¡ng máº£ng. náº¿u khÃ´ng truyá»�n, cÃ³ thá»ƒ hiá»ƒu
-	// lÃ  ko cÃ³ dá»¯ liá»‡u => ko bÃ¡o lá»—i
 	public WebElement findWebElement(String locator, int... timeOut) {
 		logger.info(MessageFormat.format("Finding web element located by ''{0}''", locator));
 		long startTime = 0;
@@ -744,20 +735,6 @@ public class WebKeywords {
 		}
 	}
 
-	// 41. takeAreaScreenshot
-//	public void takeAreaScreenshot(String fileName ,int x, int y, int a, int b) {
-//		logger.info(MessageFormat.format("Taking area sreenshot on position x: ''{0}'' and y: ''{1}'' and a: ''{2}'' and b: ''{3}''", x, y, a, b));
-//		try {
-//			WebDriver driver = driverManager.getDriver();
-//			Screenshot screenshot = new Ashot().takeScreenshot(driver);
-//			logger.info(MessageFormat.format("Taking area sreenshot on position x: ''{0}'' and y: ''{1}'' and a: ''{2}'' and b: ''{3}''", x, y, a, b));
-//		} catch (Exception e) {
-//			logger.error(
-//					MessageFormat.format("Cannot take area screenshot on position x: ''{0}'' and y: ''{1}'' and a: ''{2}'' and b: ''{3}''. Root cause is: ''{2}''",
-//							x, y, a, b, e.getMessage()));
-//		}
-//	}
-
 	// 42. takeScreenshot
 	@Attachment(value = "Form screenshot", type = "image/png")
 	public byte[] takeScreenshot() {
@@ -765,9 +742,6 @@ public class WebKeywords {
 		try {
 			WebDriver driver = driverManager.getDriver();
 			return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//			FileUtils.copyFile(scrFile, new File("D:\\Screenshot Eclipse\\screenshot.png"));
-//			logger.info("Took screen shot in browser successfully. File in 'D:\\Screenshot\\screenshot.png'");
 		} catch (Exception e) {
 			logger.error(MessageFormat.format("Cannot take screen shot. Root cause is : ''{1}''", e.getMessage()));
 		}
