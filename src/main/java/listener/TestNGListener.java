@@ -5,16 +5,19 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestNGListener;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
 import utils.configs.ConfigSettings;
 
 import java.io.File;
+import java.lang.annotation.Annotation;
 
-public class TestNGListener {
+public class TestNGListener implements Listeners {
     protected WebKeywords action;
     private ConfigSettings configSettings;
     private drivers.DriverManager driverManager;
@@ -85,5 +88,15 @@ public class TestNGListener {
     @AfterTest
     public void afterTest() {
         action.closeBrowser(configSettings.getBaseUrl());
+    }
+
+    @Override
+    public Class<? extends ITestNGListener>[] value() {
+        return new Class[0];
+    }
+
+    @Override
+    public Class<? extends Annotation> annotationType() {
+        return null;
     }
 }

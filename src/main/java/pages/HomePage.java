@@ -4,6 +4,8 @@ import WebKeywords.WebKeywords;
 import io.qameta.allure.Step;
 import items.Item;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import utils.log.LogHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class HomePage {
+    private static Logger logger = LogHelper.getLogger();
     public WebKeywords action;
     private Item item;
     List<WebElement> els = new ArrayList<WebElement>();
@@ -45,7 +48,11 @@ public class HomePage {
             String txtChange = action.getText(changeItems.get(i));
 
             if(txtChange.contains(".")){
-                change = Float.parseFloat(txtChange);
+                try {
+                    change = Float.parseFloat(txtChange);
+                }catch(Exception e){
+                    logger.error("Cannot parse ''{0}'' to float. Root cause is: ''{1}''", txtChange, e.getMessage());
+                }
             }
             else{
                 change = 0 ;
